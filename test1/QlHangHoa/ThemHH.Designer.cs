@@ -269,6 +269,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "ThemHH";
             this.Text = "ThemHH";
+            this.Load += new System.EventHandler(this.ThemHH_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);

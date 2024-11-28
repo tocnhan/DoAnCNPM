@@ -102,12 +102,61 @@ namespace test1
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (id_edit != -1)
+            {
+                delete_HH(id_edit);
+            }
+            else
+            {
+                MessageBox.Show("bạn cần chọn nhân viên cần xóa", "canh bao", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
+            }
+        }
+        private void delete_HH(int id)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa hàng hóa này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                using (MySqlConnection conn = new MySqlConnection(MysqlCon))
+                {
+                    try
+                    {
+                        conn.Open();
+
+                        // Lệnh DELETE
+                        string query = "DELETE FROM hanghoa WHERE id = @id";
+                        MySqlCommand cmd = new MySqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@id", id);
+
+                        // Thực thi lệnh
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Xóa thông tin hàng hóa thành công!");
+                            LoadDataGrid(); // Tải lại dữ liệu lên DataGridView
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không tìm thấy hàng hóa để xóa!");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
+                }
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             LoadDataGrid();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

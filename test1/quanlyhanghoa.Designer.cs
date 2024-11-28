@@ -179,6 +179,7 @@
             this.label1.Size = new System.Drawing.Size(292, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "quản lý hàng hóa";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // splitter2
             // 
