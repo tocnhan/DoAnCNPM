@@ -60,6 +60,7 @@
             this.groupBox1.Size = new System.Drawing.Size(920, 589);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // flowLayoutPanel4
             // 
@@ -105,6 +106,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(705, 476);
             this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // flowLayoutPanel1
             // 
@@ -125,6 +127,7 @@
             this.button5.TabIndex = 5;
             this.button5.Text = "thêm";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button1
             // 
@@ -134,6 +137,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "sửa";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -143,6 +147,7 @@
             this.button2.TabIndex = 7;
             this.button2.Text = "xóa";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // flowLayoutPanel3
             // 
