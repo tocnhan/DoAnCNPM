@@ -153,5 +153,13 @@ namespace test1.qlnhanvien
                 }
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("ban co muon thoat chuong trinh khong", "canh bao", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                Close();
+            }
+        }
     }
 }
