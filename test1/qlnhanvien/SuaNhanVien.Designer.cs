@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtSdt = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -37,11 +37,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtLuong = new System.Windows.Forms.TextBox();
+            this.txtCccd = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
@@ -59,13 +59,13 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox2
+            // txtSdt
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(0, 243);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(267, 30);
-            this.textBox2.TabIndex = 10;
+            this.txtSdt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSdt.Location = new System.Drawing.Point(0, 243);
+            this.txtSdt.Name = "txtSdt";
+            this.txtSdt.Size = new System.Drawing.Size(267, 30);
+            this.txtSdt.TabIndex = 10;
             // 
             // groupBox2
             // 
@@ -143,25 +143,25 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtSdt);
+            this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.txtLuong);
+            this.groupBox1.Controls.Add(this.txtCccd);
             this.groupBox1.Location = new System.Drawing.Point(178, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(297, 434);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // textBox3
+            // txtName
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(0, 8);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(267, 30);
-            this.textBox3.TabIndex = 2;
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(0, 8);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(267, 30);
+            this.txtName.TabIndex = 2;
             // 
             // comboBox1
             // 
@@ -181,21 +181,21 @@
             this.comboBox2.Size = new System.Drawing.Size(108, 33);
             this.comboBox2.TabIndex = 9;
             // 
-            // textBox1
+            // txtLuong
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(0, 153);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(267, 30);
-            this.textBox1.TabIndex = 0;
+            this.txtLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLuong.Location = new System.Drawing.Point(0, 153);
+            this.txtLuong.Name = "txtLuong";
+            this.txtLuong.Size = new System.Drawing.Size(267, 30);
+            this.txtLuong.TabIndex = 0;
             // 
-            // textBox4
+            // txtCccd
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(0, 198);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(267, 30);
-            this.textBox4.TabIndex = 3;
+            this.txtCccd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCccd.Location = new System.Drawing.Point(0, 198);
+            this.txtCccd.Name = "txtCccd";
+            this.txtCccd.Size = new System.Drawing.Size(267, 30);
+            this.txtCccd.TabIndex = 3;
             // 
             // flowLayoutPanel4
             // 
@@ -221,8 +221,9 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(109, 33);
             this.button1.TabIndex = 0;
-            this.button1.Text = "thêm";
+            this.button1.Text = "sửa thông tin";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // splitter2
             // 
@@ -306,7 +307,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtSdt;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
@@ -315,11 +316,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtLuong;
+        private System.Windows.Forms.TextBox txtCccd;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Button button1;
