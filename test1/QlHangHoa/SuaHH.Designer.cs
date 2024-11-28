@@ -247,7 +247,7 @@
             this.theloai.FormattingEnabled = true;
             this.theloai.Location = new System.Drawing.Point(6, 86);
             this.theloai.Name = "theloai";
-            this.theloai.Size = new System.Drawing.Size(242, 33);
+            this.theloai.Size = new System.Drawing.Size(348, 33);
             this.theloai.TabIndex = 3;
             // 
             // nguongoc

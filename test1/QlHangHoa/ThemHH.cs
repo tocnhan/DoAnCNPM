@@ -25,24 +25,33 @@ namespace test1.QlHangHoa
                 mySqlConnection.Open();
                 MessageBox.Show("connection success");
 
-                // Câu lệnh SQL để lấy dữ liệu
-                string query = "SELECT id, tenbophan FROM bophan;";
+                // Câu lệnh SQL để lấy dữ liệu thể loại
+                string query_theloai = "SELECT id, mota FROM theloai;";
 
-                MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
+                MySqlCommand cmd = new MySqlCommand(query_theloai, mySqlConnection);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
+                // Gán dữ liệu vào ComboBox theloai
+                theloai.DataSource = dt;
+                theloai.DisplayMember = "mota"; // Tên cột hiển thị
+                theloai.ValueMember = "id";    // Giá trị cột ẩn
+
+                // Câu lệnh SQL để lấy dữ liệu nguongoc
+                string query_nguongoc = "SELECT id, quocgia FROM nguongoc;";
+
+                MySqlCommand cmd_ng = new MySqlCommand(query_nguongoc, mySqlConnection);
+                MySqlDataAdapter da_ng = new MySqlDataAdapter(cmd_ng);
+                DataTable dt_ng = new DataTable();
+                da_ng.Fill(dt_ng);
+
                 // Gán dữ liệu vào ComboBox
-                comboBox1.DataSource = dt;
-                comboBox1.DisplayMember = "tenbophan"; // Tên cột hiển thị
-                comboBox1.ValueMember = "id";    // Giá trị cột ẩn
+                nguongoc.DataSource = dt_ng;
+                nguongoc.DisplayMember = "quocgia"; // Tên cột hiển thị
+                nguongoc.ValueMember = "id";
 
-
-                string[] values = { "1", "2", "3", "4" };
-
-                // Gán danh sách giá trị vào ComboBox2
-                comboBox2.Items.AddRange(values);
+                
 
             }
             catch (Exception ex)
