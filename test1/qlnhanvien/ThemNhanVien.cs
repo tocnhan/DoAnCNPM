@@ -37,8 +37,13 @@ namespace test1.qlnhanvien
                     comboBox1.DataSource = dt;
                     comboBox1.DisplayMember = "tenbophan"; // Tên cột hiển thị
                     comboBox1.ValueMember = "id";    // Giá trị cột ẩn
-               
-                
+
+
+                    string[] values = { "1", "2", "3", "4" };
+
+                    // Gán danh sách giá trị vào ComboBox2
+                    comboBox2.Items.AddRange(values);
+
             }
             catch (Exception ex)
             {
@@ -85,7 +90,7 @@ namespace test1.qlnhanvien
             if (comboBox1.SelectedValue != null)
             {
                 string selectedValue = comboBox1.SelectedValue.ToString();
-                MessageBox.Show("Giá trị được chọn: " + selectedValue);
+                MessageBox.Show("Bộ phận làm việc được chọn: " + selectedValue);
             }
         }
 
@@ -95,6 +100,82 @@ namespace test1.qlnhanvien
             {
                 Close();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Lấy dữ liệu từ các TextBox và ComboBox
+            string ten = txtName.Text;
+            int bophan = int.Parse(comboBox1.SelectedValue.ToString());
+            int calam = int.Parse(comboBox2.SelectedItem.ToString());
+            float luong = float.Parse(txtLuong.Text);
+            string cccd = txtCccd.Text;
+            string sdt = txtSdt.Text;
+
+            // Kiểm tra dữ liệu hợp lệ
+            if (cccd.Length != 12)
+            {
+                MessageBox.Show("CCCD phải gồm 12 chữ số!");
+                return;
+            }
+
+            // Chèn dữ liệu vào MySQL
+            using (MySqlConnection conn = new MySqlConnection(MysqlCon))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "INSERT INTO nhanvien (name, bophan, calamviec, luong, cccd, sdt) " +
+                                   "VALUES (@ten, @bophan, @calam, @luong, @cccd, @sdt)";
+
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@ten", ten);
+                    cmd.Parameters.AddWithValue("@bophan", bophan);
+                    cmd.Parameters.AddWithValue("@calam", calam);
+                    cmd.Parameters.AddWithValue("@luong", luong);
+                    cmd.Parameters.AddWithValue("@cccd", cccd);
+                    cmd.Parameters.AddWithValue("@sdt", sdt);
+
+                    int result = cmd.ExecuteNonQuery();
+
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Thêm nhân viên thành công!");
+                        ClearFields();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lỗi khi thêm nhân viên!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+        }
+        private void ClearFields()
+        {
+            txtName.Clear();
+            comboBox1.SelectedIndex = -1;
+            comboBox2.SelectedIndex = -1;
+            txtLuong.Clear();
+            txtCccd.Clear();
+            txtSdt.Clear();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox2.SelectedItem != null)
+            {
+                string selectedValue = comboBox2.SelectedItem.ToString();
+                MessageBox.Show("Ca làm việc được chọn: " + selectedValue);
+            }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
