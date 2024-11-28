@@ -227,7 +227,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(17, 247);
+            this.textBox2.Location = new System.Drawing.Point(6, 245);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(348, 222);
@@ -236,7 +236,7 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(17, 140);
+            this.textBox3.Location = new System.Drawing.Point(6, 138);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 30);
             this.textBox3.TabIndex = 2;
@@ -245,17 +245,18 @@
             // 
             this.theloai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.theloai.FormattingEnabled = true;
-            this.theloai.Location = new System.Drawing.Point(17, 86);
+            this.theloai.Location = new System.Drawing.Point(6, 86);
             this.theloai.Name = "theloai";
             this.theloai.Size = new System.Drawing.Size(242, 33);
             this.theloai.TabIndex = 3;
             // 
             // nguongoc
             // 
+            this.nguongoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nguongoc.FormattingEnabled = true;
-            this.nguongoc.Location = new System.Drawing.Point(17, 191);
+            this.nguongoc.Location = new System.Drawing.Point(6, 195);
             this.nguongoc.Name = "nguongoc";
-            this.nguongoc.Size = new System.Drawing.Size(242, 24);
+            this.nguongoc.Size = new System.Drawing.Size(242, 33);
             this.nguongoc.TabIndex = 4;
             // 
             // SuaHH
