@@ -290,6 +290,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "SuaNhanVien";
             this.Text = "SuaNhanVien";
+            this.Load += new System.EventHandler(this.SuaNhanVien_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);

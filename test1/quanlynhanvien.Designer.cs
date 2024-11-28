@@ -60,6 +60,7 @@
             this.groupBox1.Size = new System.Drawing.Size(920, 589);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // flowLayoutPanel4
             // 
@@ -135,6 +136,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "sửa";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
