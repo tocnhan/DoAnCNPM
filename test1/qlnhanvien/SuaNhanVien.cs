@@ -16,5 +16,11 @@ namespace test1.qlnhanvien
         {
             InitializeComponent();
         }
+
+       
+        private void SuaNhanVien_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
