@@ -12,9 +12,16 @@ namespace test1.QlHangHoa
 {
     public partial class SuaHH : Form
     {
-        public SuaHH()
+        private int id;
+        public SuaHH(int id)
         {
+            this.id = id;
             InitializeComponent();
+        }
+
+        private void SuaHH_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

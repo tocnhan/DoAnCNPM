@@ -220,6 +220,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="QlHangHoa\SuaHH.resx">
+      <DependentUpon>SuaHH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QlHangHoa\ThemHH.resx">
+      <DependentUpon>ThemHH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="qlnhanvien\SuaNhanVien.resx">
       <DependentUpon>SuaNhanVien.cs</DependentUpon>
     </EmbeddedResource>

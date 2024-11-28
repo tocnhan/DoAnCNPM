@@ -68,22 +68,46 @@ namespace test1
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
+                // Lấy ID từ dòng đã chọn
+                id_edit = Convert.ToInt32(row.Cells["id"].Value);
+
+                // Gọi hàm để tải dữ liệu vào các TextBox và ComboBox
+
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            addHH = new ThemHH();
+            addHH.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (id_edit != -1)
+            {
+                editHH = new SuaHH(id_edit);
+                editHH.Show();
+            }
+            else
+            {
+                MessageBox.Show("bạn cần chọn hàng hóa cần sửa", "canh bao", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LoadDataGrid();
         }
     }
 }
