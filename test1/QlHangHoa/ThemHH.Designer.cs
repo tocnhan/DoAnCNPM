@@ -147,7 +147,7 @@
             this.theloai.FormattingEnabled = true;
             this.theloai.Location = new System.Drawing.Point(6, 86);
             this.theloai.Name = "theloai";
-            this.theloai.Size = new System.Drawing.Size(242, 33);
+            this.theloai.Size = new System.Drawing.Size(348, 33);
             this.theloai.TabIndex = 3;
             // 
             // groupBox1
@@ -269,6 +269,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "ThemHH";
             this.Text = "ThemHH";
+            this.Load += new System.EventHandler(this.ThemHH_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
