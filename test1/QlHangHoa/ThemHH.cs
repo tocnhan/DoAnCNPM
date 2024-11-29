@@ -78,7 +78,6 @@ namespace test1.QlHangHoa
             int sluong = int.Parse(txtSoluong.Text.Trim());
             int quocgia = int.Parse(nguongoc.SelectedValue.ToString());
             string mota = txtMota.Text.Trim();
-            string dongia = txtDongia.Text.Trim();
 
             using (MySqlConnection conn = new MySqlConnection(MysqlCon))
             {
@@ -87,7 +86,7 @@ namespace test1.QlHangHoa
                     conn.Open();
 
                     // Câu lệnh INSERT
-                    string query = "INSERT INTO hanghoa (tenhang, theloai, soluong, nguongoc, mota, dongia) VALUES (@ten, @theloai, @soluong, @nguongoc, @mota, @dongia)";
+                    string query = "INSERT INTO hanghoa (tenhang, theloai, soluong, nguongoc, mota) VALUES (@ten, @theloai, @soluong, @nguongoc, @mota)";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
 
                     // Gắn giá trị vào các tham số
@@ -96,7 +95,7 @@ namespace test1.QlHangHoa
                     cmd.Parameters.AddWithValue("@soluong", sluong);
                     cmd.Parameters.AddWithValue("@nguongoc", quocgia);
                     cmd.Parameters.AddWithValue("@mota", mota);
-                    cmd.Parameters.AddWithValue("@dongia",dongia);
+
                     // Thực thi lệnh
                     int rowsInserted = cmd.ExecuteNonQuery();
 

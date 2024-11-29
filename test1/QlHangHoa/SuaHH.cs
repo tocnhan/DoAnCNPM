@@ -91,7 +91,6 @@ namespace test1.QlHangHoa
                         txtSoluong.Text = reader["soluong"].ToString();
                         nguongoc.SelectedValue = reader["nguongoc"].ToString();
                         txtMota.Text = reader["mota"].ToString();
-                        txtDongia.Text = reader["dongia"].ToString();
                     }
 
                     reader.Close();
@@ -116,7 +115,6 @@ namespace test1.QlHangHoa
             int sluong = int.Parse(txtSoluong.Text.Trim());
             int quocgia = int.Parse(nguongoc.SelectedValue.ToString());
             string mota = txtMota.Text.Trim();
-            string dongia = txtDongia.Text.Trim();
 
             using (MySqlConnection conn = new MySqlConnection(MysqlCon))
             {
@@ -125,7 +123,7 @@ namespace test1.QlHangHoa
                     conn.Open();
 
                     // Câu lệnh UPDATE
-                    string query = "UPDATE hanghoa SET tenhang=@ten, theloai=@theloai, soluong=@soluong, nguongoc=@nguongoc, mota=@mota, dongia= @dongia WHERE id=@id";
+                    string query = "UPDATE hanghoa SET tenhang=@ten, theloai=@theloai, soluong=@soluong, nguongoc=@nguongoc, mota=@mota WHERE id=@id";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
 
                     // Gắn giá trị vào các tham số
@@ -135,7 +133,6 @@ namespace test1.QlHangHoa
                     cmd.Parameters.AddWithValue("@soluong", sluong);
                     cmd.Parameters.AddWithValue("@nguongoc", quocgia);
                     cmd.Parameters.AddWithValue("@mota", mota);
-                    cmd.Parameters.AddWithValue("@dongia", dongia);
 
                     // Thực thi lệnh
                     int rowsAffected = cmd.ExecuteNonQuery();

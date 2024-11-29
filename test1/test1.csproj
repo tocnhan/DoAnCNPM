@@ -160,6 +160,13 @@
     <Compile Include="QlHangHoa\ThemHH.Designer.cs">
       <DependentUpon>ThemHH.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+    <Compile Include="QlHoaDon\ChiTietHD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QlHoaDon\ChiTietHD.Designer.cs">
+      <DependentUpon>ChiTietHD.cs</DependentUpon>
+    </Compile>
     <Compile Include="QlHoaDon\SuaHD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +191,8 @@
     <Compile Include="QlKhachHang\ThemKH.Designer.cs">
       <DependentUpon>ThemKH.cs</DependentUpon>
     </Compile>
+=======
+>>>>>>> parent of ed880bc (them gia trri don gia vao hang hoa)
     <Compile Include="qlnhanvien\SuaNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,15 +259,6 @@
     <EmbeddedResource Include="QlHangHoa\ThemHH.resx">
       <DependentUpon>ThemHH.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QlHoaDon\TaoMoiHD.resx">
-      <DependentUpon>TaoMoiHD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="QlKhachHang\SuaKH.resx">
-      <DependentUpon>SuaKH.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="QlKhachHang\ThemKH.resx">
-      <DependentUpon>ThemKH.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="qlnhanvien\SuaNhanVien.resx">
       <DependentUpon>SuaNhanVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,9 +293,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ThongKe\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
