@@ -49,6 +49,8 @@
             this.txtSoluong = new System.Windows.Forms.TextBox();
             this.txtMota = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtDongia = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -135,6 +137,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -207,6 +210,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtDongia);
             this.groupBox2.Controls.Add(this.nguongoc);
             this.groupBox2.Controls.Add(this.theloai);
             this.groupBox2.Controls.Add(this.txtSoluong);
@@ -261,6 +265,24 @@
             this.txtName.Size = new System.Drawing.Size(253, 30);
             this.txtName.TabIndex = 0;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(24, 493);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 25);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "đơn giá";
+            // 
+            // txtDongia
+            // 
+            this.txtDongia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDongia.Location = new System.Drawing.Point(6, 493);
+            this.txtDongia.Name = "txtDongia";
+            this.txtDongia.Size = new System.Drawing.Size(175, 30);
+            this.txtDongia.TabIndex = 5;
+            // 
             // SuaHH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -309,5 +331,7 @@
         private System.Windows.Forms.ComboBox theloai;
         private System.Windows.Forms.TextBox txtSoluong;
         private System.Windows.Forms.TextBox txtMota;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtDongia;
     }
 }

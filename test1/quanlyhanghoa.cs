@@ -52,6 +52,7 @@ namespace test1
                     dataGridView1.Columns["soluong"].HeaderText = "tồn kho";
                     dataGridView1.Columns["nguongoc"].HeaderText = "xuất xứ";
                     dataGridView1.Columns["mota"].HeaderText = "mô tả";
+                    dataGridView1.Columns["dongia"].HeaderText = "đơn giá";
                 }
                 catch (Exception ex)
                 {
@@ -156,7 +157,39 @@ namespace test1
 
         private void label1_Click(object sender, EventArgs e)
         {
+            txtSearch.TextChanged += txtSearch_TextChanged;
 
+            // Tải dữ liệu mặc định vào DataGridView
+            LoadDataGrid();
+        }
+
+        
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = txtSearch.Text.Trim(); // Lấy từ khóa tìm kiếm
+
+            using (MySqlConnection conn = new MySqlConnection(MysqlCon))
+            {
+                try
+                {
+                    conn.Open();
+
+                    // Truy vấn tìm kiếm theo tên
+                    string query = "SELECT * FROM hanghoa WHERE tenhang LIKE @keyword";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+
+                    // Đọc dữ liệu và hiển thị lên DataGridView
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
         }
     }
 }

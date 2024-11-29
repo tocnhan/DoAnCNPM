@@ -160,6 +160,30 @@
     <Compile Include="QlHangHoa\ThemHH.Designer.cs">
       <DependentUpon>ThemHH.cs</DependentUpon>
     </Compile>
+    <Compile Include="QlHoaDon\SuaHD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QlHoaDon\SuaHD.Designer.cs">
+      <DependentUpon>SuaHD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QlHoaDon\TaoMoiHD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QlHoaDon\TaoMoiHD.Designer.cs">
+      <DependentUpon>TaoMoiHD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QlKhachHang\SuaKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QlKhachHang\SuaKH.Designer.cs">
+      <DependentUpon>SuaKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QlKhachHang\ThemKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QlKhachHang\ThemKH.Designer.cs">
+      <DependentUpon>ThemKH.cs</DependentUpon>
+    </Compile>
     <Compile Include="qlnhanvien\SuaNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +250,9 @@
     <EmbeddedResource Include="QlHangHoa\ThemHH.resx">
       <DependentUpon>ThemHH.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="QlHoaDon\TaoMoiHD.resx">
+      <DependentUpon>TaoMoiHD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="qlnhanvien\SuaNhanVien.resx">
       <DependentUpon>SuaNhanVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,6 +287,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ThongKe\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
