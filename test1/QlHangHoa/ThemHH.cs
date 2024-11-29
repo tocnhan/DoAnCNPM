@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace test1.QlHangHoa
@@ -68,6 +69,61 @@ namespace test1.QlHangHoa
         private void ThemHH_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string ten = txtName.Text.Trim();
+            int theloai_mota = int.Parse(theloai.SelectedValue.ToString());
+            int sluong = int.Parse(txtSoluong.Text.Trim());
+            int quocgia = int.Parse(nguongoc.SelectedValue.ToString());
+            string mota = txtMota.Text.Trim();
+
+            using (MySqlConnection conn = new MySqlConnection(MysqlCon))
+            {
+                try
+                {
+                    conn.Open();
+
+                    // Câu lệnh INSERT
+                    string query = "INSERT INTO hanghoa (tenhang, theloai, soluong, nguongoc, mota) VALUES (@ten, @theloai, @soluong, @nguongoc, @mota)";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                    // Gắn giá trị vào các tham số
+                    cmd.Parameters.AddWithValue("@ten", ten);
+                    cmd.Parameters.AddWithValue("@theloai", theloai_mota);
+                    cmd.Parameters.AddWithValue("@soluong", sluong);
+                    cmd.Parameters.AddWithValue("@nguongoc", quocgia);
+                    cmd.Parameters.AddWithValue("@mota", mota);
+
+                    // Thực thi lệnh
+                    int rowsInserted = cmd.ExecuteNonQuery();
+
+                    if (rowsInserted > 0)
+                    {
+                        MessageBox.Show("Thêm mới thành công!");
+                        // Tải lại dữ liệu lên DataGridView (nếu có)
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không có thay đổi nào được thực hiện.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("ban co muon thoat chuong trinh khong", "canh bao", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                Close();
+            }
         }
     }
 }

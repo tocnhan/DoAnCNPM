@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.nguongoc = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSoluong = new System.Windows.Forms.TextBox();
+            this.txtMota = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -66,30 +66,30 @@
             this.nguongoc.Size = new System.Drawing.Size(242, 33);
             this.nguongoc.TabIndex = 4;
             // 
-            // textBox3
+            // txtSoluong
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(6, 138);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 30);
-            this.textBox3.TabIndex = 2;
+            this.txtSoluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoluong.Location = new System.Drawing.Point(6, 138);
+            this.txtSoluong.Name = "txtSoluong";
+            this.txtSoluong.Size = new System.Drawing.Size(100, 30);
+            this.txtSoluong.TabIndex = 2;
             // 
-            // textBox2
+            // txtMota
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(6, 245);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(348, 222);
-            this.textBox2.TabIndex = 1;
+            this.txtMota.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMota.Location = new System.Drawing.Point(6, 245);
+            this.txtMota.Multiline = true;
+            this.txtMota.Name = "txtMota";
+            this.txtMota.Size = new System.Drawing.Size(348, 222);
+            this.txtMota.TabIndex = 1;
             // 
-            // textBox1
+            // txtName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(6, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(253, 30);
-            this.textBox1.TabIndex = 0;
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(6, 33);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(253, 30);
+            this.txtName.TabIndex = 0;
             // 
             // label6
             // 
@@ -180,6 +180,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "thêm";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // splitter2
             // 
@@ -197,6 +198,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "thoát";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -213,7 +215,7 @@
             // 
             this.splitter1.Location = new System.Drawing.Point(3, 3);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(70, 33);
+            this.splitter1.Size = new System.Drawing.Size(70, 32);
             this.splitter1.TabIndex = 1;
             this.splitter1.TabStop = false;
             // 
@@ -223,7 +225,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(79, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(382, 39);
+            this.label1.Size = new System.Drawing.Size(366, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "thêm thông tin hàng hóa";
             // 
@@ -239,9 +241,9 @@
             // 
             this.groupBox2.Controls.Add(this.nguongoc);
             this.groupBox2.Controls.Add(this.theloai);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.txtSoluong);
+            this.groupBox2.Controls.Add(this.txtMota);
+            this.groupBox2.Controls.Add(this.txtName);
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(377, 562);
@@ -286,9 +288,9 @@
         #endregion
 
         private System.Windows.Forms.ComboBox nguongoc;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSoluong;
+        private System.Windows.Forms.TextBox txtMota;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
