@@ -160,6 +160,12 @@
     <Compile Include="QlHangHoa\ThemHH.Designer.cs">
       <DependentUpon>ThemHH.cs</DependentUpon>
     </Compile>
+    <Compile Include="QlHoaDon\ChiTietHD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QlHoaDon\ChiTietHD.Designer.cs">
+      <DependentUpon>ChiTietHD.cs</DependentUpon>
+    </Compile>
     <Compile Include="QlHoaDon\SuaHD.cs">
       <SubType>Form</SubType>
     </Compile>
