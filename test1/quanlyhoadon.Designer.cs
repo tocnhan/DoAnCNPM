@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -178,15 +179,19 @@
             this.splitter1.TabIndex = 1;
             this.splitter1.TabStop = false;
             // 
+=======
+            this.label1 = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+>>>>>>> parent of ed880bc (them gia trri don gia vao hang hoa)
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(231, 0);
+            this.label1.Location = new System.Drawing.Point(357, 180);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(272, 43);
+            this.label1.Size = new System.Drawing.Size(56, 16);
             this.label1.TabIndex = 0;
+<<<<<<< HEAD
             this.label1.Text = "quản lý hóa đơn";
             // 
             // splitter2
@@ -196,45 +201,27 @@
             this.splitter2.Size = new System.Drawing.Size(251, 37);
             this.splitter2.TabIndex = 2;
             this.splitter2.TabStop = false;
+=======
+            this.label1.Text = "hoa don";
+>>>>>>> parent of ed880bc (them gia trri don gia vao hang hoa)
             // 
             // quanlyhoadon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(983, 612);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "quanlyhoadon";
             this.Text = "quanlyhoadon";
             this.Load += new System.EventHandler(this.quanlyhoadon_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.flowLayoutPanel4.ResumeLayout(false);
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Splitter splitter2;
-        private System.Windows.Forms.Button button4;
     }
 }
