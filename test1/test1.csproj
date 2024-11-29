@@ -253,6 +253,12 @@
     <EmbeddedResource Include="QlHoaDon\TaoMoiHD.resx">
       <DependentUpon>TaoMoiHD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="QlKhachHang\SuaKH.resx">
+      <DependentUpon>SuaKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QlKhachHang\ThemKH.resx">
+      <DependentUpon>ThemKH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="qlnhanvien\SuaNhanVien.resx">
       <DependentUpon>SuaNhanVien.cs</DependentUpon>
     </EmbeddedResource>
