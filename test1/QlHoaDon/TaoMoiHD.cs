@@ -23,5 +23,17 @@ namespace test1.QlHoaDon
         {
 
         }
+        private void AddButtonColumnToDataGridView()
+        {
+            // Tạo cột kiểu nút
+            DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+            buttonColumn.Name = "Action";
+            buttonColumn.HeaderText = "Thao tác";
+            buttonColumn.Text = "thêm"; // Văn bản hiển thị trên nút
+            buttonColumn.UseColumnTextForButtonValue = true; // Dùng văn bản mặc định cho nút
+
+            // Thêm cột vào DataGridView
+            dt_sp.Columns.Add(buttonColumn);
+        }
     }
 }

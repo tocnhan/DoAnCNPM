@@ -3,8 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -61,7 +63,63 @@ namespace test1
 
         private void button5_Click(object sender, EventArgs e)
         {
+            DateTime ngayHienTai = DateTime.Now.Date;
+            string chuoiNgay = ngayHienTai.ToString("M-d-yyyy");
+            using (MySqlConnection conn = new MySqlConnection(MysqlCon))
+            {
+                try
+                {
+                    conn.Open();
+                    string query_cl = "SELECT MAX(id) AS id FROM hoadon";
 
+                    int maxId = 0;
+                    // Câu lệnh INSERT
+                    string query = "INSERT INTO hoadon (ngay) VALUES (@day)";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                    // Gắn giá trị vào các tham số
+                    cmd.Parameters.AddWithValue("@day", chuoiNgay);
+                    
+                    // Thực thi lệnh
+                    int rowsInserted = cmd.ExecuteNonQuery();
+
+                    if (rowsInserted > 0)
+                    {
+                        
+                        // Tải lại dữ liệu lên DataGridView (nếu có)
+                            try
+                            {
+
+                                MySqlCommand command = new MySqlCommand(query_cl, conn);
+                                
+                                    object result = command.ExecuteScalar();
+
+                                    if (result != DBNull.Value && result != null)
+                                    {
+                                        maxId = Convert.ToInt32(result);
+                                        
+                                    }
+
+                                add_hd = new TaoMoiHD(maxId);
+                                add_hd.Show();
+
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"Lỗi: {ex.Message}");
+                            }
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không có thay đổi nào được thực hiện.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
