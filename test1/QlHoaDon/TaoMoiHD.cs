@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,35 @@ namespace test1.QlHoaDon
         public TaoMoiHD(int id)
         {
             InitializeComponent();
+            MySqlConnection mySqlConnection = new MySqlConnection(MysqlCon);
+            try
+            {
+                mySqlConnection.Open();
+                MessageBox.Show("connection success");
+
+                // Câu lệnh SQL để lấy dữ liệu thể loại
+                string query_theloai = "SELECT id, nam FROM nhanvien;";
+
+                MySqlCommand cmd = new MySqlCommand(query_theloai, mySqlConnection);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                // Gán dữ liệu vào ComboBox theloai
+                cb_nv.DataSource = dt;
+                cb_nv.DisplayMember = "name"; // Tên cột hiển thị
+                cb_nv.ValueMember = "id";    // Giá trị cột ẩn
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                mySqlConnection.Close();
+            }
             this.id = id;
             dt_sp.CellClick += dataGridView2_CellClick;
             dt_addsp.CellClick += dataGridView1_CellClick;
@@ -267,6 +297,11 @@ namespace test1.QlHoaDon
                     MessageBox.Show("Lỗi: " + ex.Message);
                 }
             }
+        }
+
+        private void cb_nv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

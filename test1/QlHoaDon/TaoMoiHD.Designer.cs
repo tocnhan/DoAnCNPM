@@ -226,6 +226,7 @@
             this.cb_nv.Name = "cb_nv";
             this.cb_nv.Size = new System.Drawing.Size(251, 33);
             this.cb_nv.TabIndex = 6;
+            this.cb_nv.SelectedIndexChanged += new System.EventHandler(this.cb_nv_SelectedIndexChanged);
             // 
             // dt_addsp
             // 

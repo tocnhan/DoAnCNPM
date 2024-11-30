@@ -126,5 +126,10 @@ namespace test1.QlHangHoa
                 Close();
             }
         }
+
+        private void theloai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.theloai = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.splitter2 = new System.Windows.Forms.Splitter();
@@ -48,9 +49,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
             this.txtDongia = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -151,6 +151,7 @@
             this.theloai.Name = "theloai";
             this.theloai.Size = new System.Drawing.Size(348, 33);
             this.theloai.TabIndex = 3;
+            this.theloai.SelectedIndexChanged += new System.EventHandler(this.theloai_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -165,6 +166,16 @@
             this.groupBox1.Size = new System.Drawing.Size(197, 562);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(24, 490);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 25);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "đơn giá";
             // 
             // flowLayoutPanel3
             // 
@@ -254,6 +265,14 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
+            // txtDongia
+            // 
+            this.txtDongia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDongia.Location = new System.Drawing.Point(6, 493);
+            this.txtDongia.Name = "txtDongia";
+            this.txtDongia.Size = new System.Drawing.Size(230, 30);
+            this.txtDongia.TabIndex = 5;
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.splitter1);
@@ -263,24 +282,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(602, 51);
             this.flowLayoutPanel1.TabIndex = 4;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(24, 490);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 25);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "đơn giá";
-            // 
-            // txtDongia
-            // 
-            this.txtDongia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDongia.Location = new System.Drawing.Point(6, 493);
-            this.txtDongia.Name = "txtDongia";
-            this.txtDongia.Size = new System.Drawing.Size(230, 30);
-            this.txtDongia.TabIndex = 5;
             // 
             // ThemHH
             // 
