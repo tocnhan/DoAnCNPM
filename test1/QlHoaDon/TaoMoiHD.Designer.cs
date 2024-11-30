@@ -49,6 +49,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dt_sp = new System.Windows.Forms.DataGridView();
+            this.button3 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -66,7 +67,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1061, 48);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1102, 48);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // splitter1
@@ -95,7 +96,7 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 575);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1061, 56);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1102, 56);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // button1
@@ -132,20 +133,21 @@
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 48);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(305, 527);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(510, 527);
             this.flowLayoutPanel3.TabIndex = 2;
             // 
             // flowLayoutPanel4
             // 
             this.flowLayoutPanel4.Controls.Add(this.groupBox2);
-            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(305, 48);
+            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(516, 48);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(756, 527);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(586, 527);
             this.flowLayoutPanel4.TabIndex = 3;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.dt_addsp);
             this.groupBox1.Controls.Add(this.cb_nv);
             this.groupBox1.Controls.Add(this.txt_tt);
@@ -156,7 +158,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(296, 518);
+            this.groupBox1.Size = new System.Drawing.Size(507, 518);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -234,7 +236,7 @@
             this.dt_addsp.Name = "dt_addsp";
             this.dt_addsp.RowHeadersWidth = 51;
             this.dt_addsp.RowTemplate.Height = 24;
-            this.dt_addsp.Size = new System.Drawing.Size(256, 251);
+            this.dt_addsp.Size = new System.Drawing.Size(486, 251);
             this.dt_addsp.TabIndex = 7;
             // 
             // groupBox2
@@ -243,7 +245,7 @@
             this.groupBox2.Controls.Add(this.txtSearch);
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(741, 518);
+            this.groupBox2.Size = new System.Drawing.Size(583, 518);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
@@ -260,18 +262,29 @@
             this.dt_sp.AllowUserToAddRows = false;
             this.dt_sp.AllowUserToDeleteRows = false;
             this.dt_sp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dt_sp.Location = new System.Drawing.Point(7, 50);
+            this.dt_sp.Location = new System.Drawing.Point(7, 42);
             this.dt_sp.Name = "dt_sp";
             this.dt_sp.RowHeadersWidth = 51;
             this.dt_sp.RowTemplate.Height = 24;
-            this.dt_sp.Size = new System.Drawing.Size(713, 389);
+            this.dt_sp.Size = new System.Drawing.Size(564, 389);
             this.dt_sp.TabIndex = 1;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(170, 153);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(101, 30);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "làm mới";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // TaoMoiHD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1061, 631);
+            this.ClientSize = new System.Drawing.Size(1102, 631);
             this.Controls.Add(this.flowLayoutPanel4);
             this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.flowLayoutPanel2);
@@ -317,5 +330,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dt_sp;
         private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button button3;
     }
 }

@@ -26,6 +26,7 @@ namespace test1.QlHoaDon
             // Thêm cột nút vào DataGridView
             AddButtonColumnToDataGridView();
             AddButtonColumnToDataGridView1();
+            LoadDataGrid();
         }
         private void LoadDataGrid()
         {
@@ -42,12 +43,12 @@ namespace test1.QlHoaDon
                     da.Fill(dt);
 
                     // Gắn dữ liệu vào DataGridView
-                    dt_addsp.DataSource = dt;
+                    dt_sp.DataSource = dt;
 
                     // Tùy chỉnh tiêu đề cột (nếu cần)
-                    dt_addsp.Columns["id"].HeaderText = "ID";
-                    dt_addsp.Columns["tenhang"].HeaderText = "Tên hàng";
-                    dt_addsp.Columns["dongia"].HeaderText = "đơn giá";
+                    dt_sp.Columns["id"].HeaderText = "ID";
+                    dt_sp.Columns["tenhang"].HeaderText = "Tên hàng";
+                    dt_sp.Columns["dongia"].HeaderText = "đơn giá";
 
 
                     MySqlDataAdapter da_sl = new MySqlDataAdapter(query_selected, conn);
@@ -55,12 +56,12 @@ namespace test1.QlHoaDon
                     da_sl.Fill(dt_sl);
 
                     // Gắn dữ liệu vào DataGridView
-                    dt_sp.DataSource = dt_sl;
+                    dt_addsp.DataSource = dt_sl;
 
                     // Tùy chỉnh tiêu đề cột (nếu cần)
-                    dt_sp.Columns["id"].HeaderText = "ID";
-                    dt_sp.Columns["tenhang"].HeaderText = "Tên hàng";
-                    dt_sp.Columns["soluong"].HeaderText = "số lượng";
+                    dt_addsp.Columns["id"].HeaderText = "ID";
+                    dt_addsp.Columns["tenhang"].HeaderText = "Tên hàng";
+                    dt_addsp.Columns["soluong"].HeaderText = "số lượng";
                 }
                 catch (Exception ex)
                 {
@@ -200,6 +201,72 @@ namespace test1.QlHoaDon
         {
 
         }
-        
+        private void thanhtien()
+        {
+            string query = @"
+            SELECT SUM(hd_sp.soluong * hanghoa.dongia) AS tong_gia_tien
+            FROM hd_sp
+            JOIN hanghoa ON hd_sp.id_sp = hanghoa.id
+            WHERE hd_sp.id_hd = @id_hd";
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(MysqlCon))
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        // Truyền tham số vào query
+                        cmd.Parameters.AddWithValue("@id_hd", id);
+
+                        // Thực thi truy vấn và lấy kết quả
+                        object result = cmd.ExecuteScalar();
+
+                        // Hiển thị kết quả trong TextBox (nếu kết quả null thì gán 0)
+                        txt_tt.Text = result != DBNull.Value ? result.ToString() : "0";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LoadDataGrid_unslsp();
+            thanhtien();
+        }
+        private void LoadDataGrid_unslsp()
+        {
+            using (MySqlConnection conn = new MySqlConnection(MysqlCon))
+            {
+                try
+                {
+                    conn.Open();
+                     // Truy vấn lấy dữ liệu từ bảng
+                    string query_selected = $"SELECT hd_sp.id AS id,  hanghoa.tenhang AS tenhang, hd_sp.soluong AS soluong FROM hd_sp JOIN hanghoa ON hd_sp.id_sp = hanghoa.id WHERE hd_sp.id_hd = {id};";
+                    
+
+
+                    MySqlDataAdapter da_sl = new MySqlDataAdapter(query_selected, conn);
+                    DataTable dt_sl = new DataTable();
+                    da_sl.Fill(dt_sl);
+
+                    // Gắn dữ liệu vào DataGridView
+                    dt_addsp.DataSource = dt_sl;
+
+                    // Tùy chỉnh tiêu đề cột (nếu cần)
+                    dt_addsp.Columns["id"].HeaderText = "ID";
+                    dt_addsp.Columns["tenhang"].HeaderText = "Tên hàng";
+                    dt_addsp.Columns["soluong"].HeaderText = "số lượng";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+        }
     }
 }
