@@ -16,9 +16,11 @@ namespace test1.QlHoaDon
     {
         soluong input_soluong;
         private int id;
+        private int role;
         string MysqlCon = " server=127.0.0.1; user=root; database=quanlysieuthi; password= ";
-        public TaoMoiHD(int id)
+        public TaoMoiHD(int id, int role)
         {
+            this.role = role;
             InitializeComponent();
             MySqlConnection mySqlConnection = new MySqlConnection(MysqlCon);
             try
@@ -39,6 +41,55 @@ namespace test1.QlHoaDon
                 cb_nv.DisplayMember = "name"; // Tên cột hiển thị
                 cb_nv.ValueMember = "id";    // Giá trị cột ẩn
 
+                if(role == 1)
+                {
+                    string qr_sld = "SELECT nhan_vien FROM hoadon WHERE id = @id";
+                    MySqlCommand cmd_sld = new MySqlCommand(qr_sld, mySqlConnection);
+                    cmd_sld.Parameters.AddWithValue("@id", id);
+
+                    object result = cmd_sld.ExecuteScalar(); // Lấy kết quả từ truy vấn
+
+                    if (result != null && int.TryParse(result.ToString(), out int nhanVien))
+                    {
+                        // Xử lý giá trị nhan_vien dạng int
+                        cb_nv.SelectedIndex = nhanVien;
+                        MessageBox.Show("Nhân viên (dạng số): " + nhanVien.ToString());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy nhân viên hoặc giá trị không hợp lệ.");
+                    }
+
+                    string query_kh = @"
+    SELECT khachhang.sdt 
+    FROM hoadon 
+    JOIN khachhang ON hoadon.khach_hang = khachhang.id 
+    WHERE hoadon.id = @id";
+
+                    try
+                    {
+                        MySqlCommand cmd_kh = new MySqlCommand(query_kh, mySqlConnection);
+                        cmd_kh.Parameters.AddWithValue("@id", id);
+
+                        object result_kh = cmd_kh.ExecuteScalar(); // Lấy sdt từ truy vấn
+
+                        if (true)
+                        {
+                            string sdt = result_kh.ToString(); // Chuyển kết quả sang chuỗi
+                            txt_sdt.Text = sdt; // Gán giá trị sdt vào TextBox
+                            MessageBox.Show("Số điện thoại khách hàng: " + sdt);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không tìm thấy số điện thoại cho hóa đơn này.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
+                    }
+
+                }
             }
             catch (Exception ex)
             {
