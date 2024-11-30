@@ -21,5 +21,10 @@ namespace test1
         {
             this.ControlBox = false;
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

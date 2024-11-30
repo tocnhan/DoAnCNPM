@@ -35,6 +35,7 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.label1 = new System.Windows.Forms.Label();
             this.splitter2 = new System.Windows.Forms.Splitter();
-            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -119,6 +119,15 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 520);
             this.flowLayoutPanel1.TabIndex = 7;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(3, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(193, 49);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "xem chi tiết hóa đơn";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(3, 58);
@@ -127,6 +136,7 @@
             this.button5.TabIndex = 5;
             this.button5.Text = "tạo mới";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button1
             // 
@@ -183,15 +193,6 @@
             this.splitter2.Size = new System.Drawing.Size(251, 37);
             this.splitter2.TabIndex = 2;
             this.splitter2.TabStop = false;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(3, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(193, 49);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "xem chi tiết hóa đơn";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // quanlyhoadon
             // 

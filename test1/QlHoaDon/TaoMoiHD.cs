@@ -12,9 +12,16 @@ namespace test1.QlHoaDon
 {
     public partial class TaoMoiHD : Form
     {
-        public TaoMoiHD()
+        private int id;
+        public TaoMoiHD(int id)
         {
             InitializeComponent();
+            this.id = id;
+        }
+
+        private void TaoMoiHD_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
