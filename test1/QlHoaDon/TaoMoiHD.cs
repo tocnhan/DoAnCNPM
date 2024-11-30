@@ -27,7 +27,7 @@ namespace test1.QlHoaDon
                 MessageBox.Show("connection success");
 
                 // Câu lệnh SQL để lấy dữ liệu thể loại
-                string query_theloai = "SELECT id, nam FROM nhanvien;";
+                string query_theloai = "SELECT id, name FROM nhanvien;";
 
                 MySqlCommand cmd = new MySqlCommand(query_theloai, mySqlConnection);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -303,5 +303,83 @@ namespace test1.QlHoaDon
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+
+            // Lấy giá trị từ TextBox và ComboBox
+            
+            int id_khach_hang;
+            int id_nhan_vien;
+            string sdt = txt_sdt.Text;
+
+            
+            if (!int.TryParse(txt_sdt.Text, out id_khach_hang))
+            {
+                MessageBox.Show("Vui lòng nhập ID khách hàng hợp lệ!");
+                return;
+            }
+            if (cb_nv.SelectedValue == null || !int.TryParse(cb_nv.SelectedValue.ToString(), out id_nhan_vien))
+            {
+                MessageBox.Show("Vui lòng chọn ID nhân viên hợp lệ!");
+                return;
+            }
+
+            // Câu lệnh SQL UPDATE
+            string findCustomerQuery = "SELECT id FROM khachhang WHERE sdt = @sdt";
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(MysqlCon))
+                {
+                    conn.Open();
+
+                    using (MySqlCommand findCustomerCmd = new MySqlCommand(findCustomerQuery, conn))
+                    {
+                        findCustomerCmd.Parameters.AddWithValue("@sdt", sdt);
+
+                        object result = findCustomerCmd.ExecuteScalar();
+
+                        if (result != null && int.TryParse(result.ToString(), out id_khach_hang))
+                        {
+                            // Bước 2: Cập nhật hóa đơn
+                            string updateQuery = @"
+                            UPDATE hoadon
+                            SET khach_hang = @id_khach_hang, 
+                                nhan_vien = @id_nhan_vien
+                            WHERE id = @id";
+
+                            using (MySqlCommand updateCmd = new MySqlCommand(updateQuery, conn))
+                            {
+                                updateCmd.Parameters.AddWithValue("@id", id);
+                                updateCmd.Parameters.AddWithValue("@id_khach_hang", id_khach_hang);
+                                updateCmd.Parameters.AddWithValue("@id_nhan_vien", id_nhan_vien);
+
+                                int rowsAffected = updateCmd.ExecuteNonQuery();
+
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Cập nhật hóa đơn thành công!");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Không tìm thấy hóa đơn với ID này!");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không tìm thấy khách hàng với số điện thoại này!");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
+            }
+        }
+    
     }
 }
