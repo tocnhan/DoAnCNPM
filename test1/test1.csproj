@@ -160,6 +160,12 @@
     <Compile Include="QlHangHoa\ThemHH.Designer.cs">
       <DependentUpon>ThemHH.cs</DependentUpon>
     </Compile>
+    <Compile Include="QlHoaDon\soluong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QlHoaDon\soluong.Designer.cs">
+      <DependentUpon>soluong.cs</DependentUpon>
+    </Compile>
     <Compile Include="QlHoaDon\SuaHD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QlHangHoa\ThemHH.resx">
       <DependentUpon>ThemHH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QlHoaDon\soluong.resx">
+      <DependentUpon>soluong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QlHoaDon\TaoMoiHD.resx">
       <DependentUpon>TaoMoiHD.cs</DependentUpon>
