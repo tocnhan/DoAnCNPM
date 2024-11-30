@@ -218,6 +218,7 @@
             this.txt_tt.Name = "txt_tt";
             this.txt_tt.Size = new System.Drawing.Size(258, 30);
             this.txt_tt.TabIndex = 5;
+            this.txt_tt.TextChanged += new System.EventHandler(this.txt_tt_TextChanged);
             // 
             // cb_nv
             // 

@@ -364,6 +364,7 @@ namespace test1.QlHoaDon
             int id_khach_hang;
             int id_nhan_vien;
             string sdt = txt_sdt.Text;
+            string tt = txt_tt.Text;
 
             
             if (!int.TryParse(txt_sdt.Text, out id_khach_hang))
@@ -398,7 +399,8 @@ namespace test1.QlHoaDon
                             string updateQuery = @"
                             UPDATE hoadon
                             SET khach_hang = @id_khach_hang, 
-                                nhan_vien = @id_nhan_vien
+                                nhan_vien = @id_nhan_vien,
+                                thanhtien = @tt
                             WHERE id = @id";
 
                             using (MySqlCommand updateCmd = new MySqlCommand(updateQuery, conn))
@@ -406,6 +408,7 @@ namespace test1.QlHoaDon
                                 updateCmd.Parameters.AddWithValue("@id", id);
                                 updateCmd.Parameters.AddWithValue("@id_khach_hang", id_khach_hang);
                                 updateCmd.Parameters.AddWithValue("@id_nhan_vien", id_nhan_vien);
+                                updateCmd.Parameters.AddWithValue("@tt", tt);
 
                                 int rowsAffected = updateCmd.ExecuteNonQuery();
 
@@ -431,6 +434,10 @@ namespace test1.QlHoaDon
                 MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
             }
         }
-    
+
+        private void txt_tt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
