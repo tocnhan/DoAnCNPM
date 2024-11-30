@@ -13,6 +13,7 @@ namespace test1.QlHoaDon
 {
     public partial class TaoMoiHD : Form
     {
+        soluong input_soluong;
         private int id;
         string MysqlCon = " server=127.0.0.1; user=root; database=quanlysieuthi; password= ";
         public TaoMoiHD(int id)
@@ -93,18 +94,18 @@ namespace test1.QlHoaDon
         }
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex == dataGridView2.Columns["Action"].Index)
+            if (e.RowIndex >= 0 && e.ColumnIndex == dt_sp.Columns["Action"].Index)
             {
                 // Lấy giá trị ID từ cột "ID" của dòng tương ứng
-                int id_sp = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells["ID"].Value);
-                string name = Convert.ToString(dataGridView2.Rows[e.RowIndex].Cells["tenhang"].Value);
+                int id_sp = Convert.ToInt32(dt_sp.Rows[e.RowIndex].Cells["ID"].Value);
+                string name = Convert.ToString(dt_sp.Rows[e.RowIndex].Cells["tenhang"].Value);
                 // Hiển thị hoặc xử lý giá trị ID
-                using (input_Soluong = new input_soluong())
+                using (input_soluong = new soluong())
                 {
-                    if (input_Soluong.ShowDialog() == DialogResult.OK)
+                    if (input_soluong.ShowDialog() == DialogResult.OK)
                     {
                         // Lấy giá trị số được nhập
-                        int enteredNumber = input_Soluong.EnteredNumber;
+                        int enteredNumber = input_soluong.EnteredNumber;
                         MessageBox.Show($"Bạn đã nhập số: {enteredNumber}");
                         using (MySqlConnection conn = new MySqlConnection(MysqlCon))
                         {
@@ -150,13 +151,49 @@ namespace test1.QlHoaDon
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex == dataGridView1.Columns["Action"].Index)
+            if (e.RowIndex >= 0 && e.ColumnIndex == dt_addsp.Columns["Action"].Index)
             {
                 // Lấy giá trị ID từ cột "ID" của dòng tương ứng
-                int id_selec = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["ID"].Value);
+                int id_selec = Convert.ToInt32(dt_addsp.Rows[e.RowIndex].Cells["ID"].Value);
                 delete_selected(id_selec);
 
 
+            }
+        }
+        private void delete_selected(int id_sl)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn bỏ mặt hàng này?", "Xác nhận bỏ", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                using (MySqlConnection conn = new MySqlConnection(MysqlCon))
+                {
+                    try
+                    {
+                        conn.Open();
+
+                        // Lệnh DELETE
+                        string query = "DELETE FROM hd_sp WHERE id = @id";
+                        MySqlCommand cmd = new MySqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@id", id_sl);
+
+                        // Thực thi lệnh
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("bỏ mặt hàng thành công!");
+                            LoadDataGrid(); // Tải lại dữ liệu lên DataGridView
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không tìm thấy mặt hàng để bỏ!");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
+                }
             }
         }
         private void TaoMoiHD_Load(object sender, EventArgs e)
