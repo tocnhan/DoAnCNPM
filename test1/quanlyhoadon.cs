@@ -41,10 +41,10 @@ namespace test1
 
                     // Tùy chỉnh tiêu đề cột (nếu cần)
                     dataGridView1.Columns["id"].HeaderText = "ID";
-                    dataGridView1.Columns["sanpham"].HeaderText = "các mã sản phẩm";
                     dataGridView1.Columns["khach_hang"].HeaderText = "mã khách hàng";
                     dataGridView1.Columns["nhan_vien"].HeaderText = "mã nhân viên";
                     dataGridView1.Columns["ngay"].HeaderText = "ngày tạo hóa đơn";
+                    dataGridView1.Columns["thanhtien"].HeaderText = "thành tiền";
 
                 }
                 catch (Exception ex)
@@ -67,6 +67,34 @@ namespace test1
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = txtSearch.Text.Trim(); // Lấy từ khóa tìm kiếm
+
+            using (MySqlConnection conn = new MySqlConnection(MysqlCon))
+            {
+                try
+                {
+                    conn.Open();
+
+                    // Truy vấn tìm kiếm theo tên
+                    string query = "SELECT * FROM hoadon WHERE ngay LIKE @keyword";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+
+                    // Đọc dữ liệu và hiển thị lên DataGridView
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
         }
     }
 }
